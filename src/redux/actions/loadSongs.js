@@ -11,7 +11,7 @@ export const getSongs = (query) => {
       });
 
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/search?q=" + query
+        "https://striveschool-api.herokuapp.com/api/deezer/album/" + query
       );
 
       if (response.ok) {

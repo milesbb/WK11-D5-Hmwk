@@ -8,22 +8,28 @@ import ArtistPage from "./components/ArtistPage";
 import PlayListCol from "./components/PlayListCol";
 import PlayBar from "./components/Playbar";
 import LoginHeader from "./components/LoginHeader";
+import SearchResults from "./components/SearchResults";
+import LikedSongs from "./components/LikedSongs";
 
 function App() {
   return (
     <div>
       <div className="d-flex">
+      <BrowserRouter>
         <PlayListCol />
         <div>
           <LoginHeader />
-          <BrowserRouter>
+          
             <Routes>
               <Route path="/" element={<HomePage />}></Route>
-              <Route path="/:AlbumName" element={<AlbumPage />}></Route>
+              <Route path="/:AlbumId" element={<AlbumPage />}></Route>
               <Route path="/:ArtistName" element={<ArtistPage />}></Route>
+              <Route path="/Search" element={<SearchResults />}></Route>
+              <Route path="/LikedSongs" element={<LikedSongs />}></Route>
             </Routes>
-          </BrowserRouter>
+          
         </div>
+      </BrowserRouter>
       </div>
       <PlayBar />
     </div>

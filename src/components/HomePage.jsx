@@ -17,7 +17,7 @@ const HomePage = () => {
   });
   console.log(albums);
   useEffect(() => {
-    dispatch(getAlbums("Kero Kero Bonito"));
+    dispatch(getAlbums("Queen"));
   }, []);
 
   return (

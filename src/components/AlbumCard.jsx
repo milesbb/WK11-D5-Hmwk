@@ -1,5 +1,6 @@
 import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { LIKE_SONG, PLAY_SONG, UNLIKE_SONG } from "../redux/reducers/extrafunc";
 
 const AlbumCard = ({ album }) => {
@@ -14,14 +15,22 @@ const AlbumCard = ({ album }) => {
 
   return (
     <Card style={{ width: "12rem", background: "gray" }} className="m-2 p-0">
-      <Card.Img
-        variant="top"
-        style={{ width: "100%" }}
-        src={album.album.cover_big}
-      />
+      <Link to={"/" + album.id}>
+        <Card.Img
+          variant="top"
+          style={{ width: "100%" }}
+          src={album.album.cover_big}
+        />
+      </Link>
       <Card.Body>
-        <Card.Title>{album.title}</Card.Title>
-        <Card.Text>{album.artist.name}</Card.Text>
+        <Link to={"/" + album.id} className="nav-link">
+          <Card.Title>{album.title}</Card.Title>
+        </Link>
+        <Link to={"/" + album.artist.id} className="nav-link">
+          {" "}
+          <Card.Text>{album.artist.name}</Card.Text>
+        </Link>
+
         {nowPlaying.album === album ? (
           <Button
             onClick={() => {
