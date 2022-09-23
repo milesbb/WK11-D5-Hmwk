@@ -29,8 +29,9 @@ const SearchResults = () => {
   return (
     <div style={{ width: "82vw", height: "82vh", overflow: "scroll" }}
     className="text-white p-3">
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className="w-75">
         <Form.Control
+        className="bg-dark text-white"
           type="search"
           value={query}
           onChange={handleChange}
